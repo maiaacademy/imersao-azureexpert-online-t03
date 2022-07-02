@@ -1,7 +1,10 @@
-# Imersao Azure Expert Online
+# Imersao Azure Expert Online - Turma 3
 
-Hands-on Lab
+Este é o repositório que contém os materiais de apoio da Imersão
 
+Para realizar as atividades do Hands-on estamos utilizando o Portal do Azure no idioma Inglês a fim de manter o padrão e não haver erros, e se necessário você pode abrir o [Google Tradutor](https://translate.google.com.br/) e traduzir caso tenha alguma dificuldade no entendimento.
+
+## Hands-on Lab
 ## Day 1
 ## Exercise #01 - Azure Calculator (15 minutes)
 
@@ -31,18 +34,18 @@ Hands-on Lab
     |Setting|Value|
     |---|---|
     |Subscription| the name of the Azure subscription you will use in this lab |
-    |Resource Group| **RG-TAE-VMs**|
+    |Resource Group| **RG-IAE-VMs**|
     |Region| East US 2 |
-    |Tags| project: azureexpert |
+    |Tags| **project: azureexpert** and **costcenter: imersao** |
     | | |
 
-1. Repeat and create the Resources groups name "RG-TAE-Networks" and "RG-TAE-Storage".
+1. Repeat and create the Resources groups name "RG-IAE-Network" and "RG-IAE-Storage".
 
 1. Click **Review + Create** and then click **Create**.
 
 1. Explore properties to Resource groups.
 
-## Lab #02 - Virtual Networks (10 minutes)
+## Lab #02 - Virtual Networks (15 minutes)
 
 1. In the Azure portal, search for and select **Virtual networks**, and, on the **Virtual networks** blade, click **+ Create**.
 
@@ -51,8 +54,8 @@ Hands-on Lab
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you will be using in this lab |
-    | Resource Group | the name of a resource group **RG-TAE-Networks** |
-    | Name | **VNET-TAE-Hub** |
+    | Resource Group | the name of a resource group **RG-IAE-Network** |
+    | Name | **VNET-IAE-Hub** |
     | Region | the name of any Azure region available in the subscription you will use in this lab |
     | IPv4 address space | **10.1.0.0/16** |
     | Subnet name | **Default** |
@@ -84,8 +87,8 @@ Hands-on Lab
     | Setting | Value | 
     | --- | --- |
     | Subscription | the name of the Azure subscription you will be using in this lab |
-    | Resource group | the name of a new resource group **RG-TAE-VMs** |
-    | Virtual machine name | **VMHUB01** |
+    | Resource group | the name of a new resource group **RG-IAE-VMs** |
+    | Virtual machine name | **VMWEB01** |
     | Region | select same region the Resouce group | 
     | Availability options | **Availability sets** |
     | Availability set | **AS-VM** |
@@ -109,9 +112,9 @@ Hands-on Lab
 
     | Setting | Value | 
     | --- | --- |
-    | Virtual Network | **VNET-TAE-HUB** |
+    | Virtual Network | **VNET-IAE-HUB** |
     | Subnet | **FrontEnd** |
-    | Public IP | **VMHUB01-PI** |
+    | Public IP | **VMWEB01-PI** |
     | NIC network security group | **Basic** |
 	| Inbound Ports | **RDP (3389)** and HTTP (80)|
     | Place this virtual machine behind an existing load balancing solution? | **No** |
@@ -123,7 +126,7 @@ Hands-on Lab
     | --- | --- |
     | Boot diagnostics | **Enable with custom storage account** |
     | Diagnostics storage account | create new |
-    | Properties storage account | Name: **sataediag###**, Account kind: StorageV2, Performance: Standard, Replication: Locally-redundant-storage (LRS) |
+    | Properties storage account | Name: **saiaediag###**, Account kind: StorageV2, Performance: Standard, Replication: Locally-redundant-storage (LRS) |
     | Enable auto-shutdown | off    
     
 1. Click **Next: Advanced >**, on the **Advanced** tab of the **Create a virtual machine** blade, review the available settings without modifying any of them, and click **Review + Create**.
@@ -138,10 +141,10 @@ Hands-on Lab
 
     | Setting | Value | 
     | --- | --- |
-    | Disk name | **VMHUB01-DataDisk01** |
+    | Disk name | **VMWEB01-DataDisk01** |
     | Source type | **None** |
     | Account type | **Standard HD** |
-    | Size | **50 GiB** |
+    | Size | **20 GiB** |
     | | |
 
 1. Connect Virtual machine and start disk.
@@ -164,7 +167,7 @@ Hands-on Lab
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource Group | **RG-TAE-Networks** |
+    | Resource Group | **RG-IAE-Network** |
     | Name | **azureexpert.corp** |
 
 1. Click Review and Create. Let validation occur, and hit Create again to submit your deployment.
@@ -181,7 +184,7 @@ Hands-on Lab
     | --- | --- |
     | Link name | **VNL-Hub** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **VNET-TAE-Hub** |
+    | Virtual network | **VNET-IAE-Hub** |
     | Enable auto registration | enabled |
 
 1. Click **OK**.
@@ -190,19 +193,19 @@ Hands-on Lab
 
 1. On the **azureexpert.corp** private DNS zone blade, in the sidebar, click **Overview**
 
-1. Verify that the DNS records for **VMHUB01** appear in the list of record sets as **Auto registered**.
+1. Verify that the DNS records for **VMWEB01** appear in the list of record sets as **Auto registered**.
 
     >**Note:** You might need to wait a few minutes and refresh the page if the record sets are not listed.
 
-1. Switch to the RDP session to **VMHUB01**.
+1. Switch to the RDP session to **VMWEB01**.
 
-1. In the Terminal console, run the following to test internal name resolution of the **VMHUB01** DNS record set in the newly created private DNS zone:
+1. In the Terminal console, run the following to test internal name resolution of the **VMWEB01** DNS record set in the newly created private DNS zone:
 
    ```powershell
-   nslookup vmhub01.azureexpert.corp
+   nslookup VMWEB01.azureexpert.corp
    ```
 
-1. Verify that the output of the command includes the private IP address of **VMHub01**.
+1. Verify that the output of the command includes the private IP address of **VMWEB01**.
 
 ## Lab #05 - Network Security groups (15 minutes)
 
@@ -213,7 +216,7 @@ Hands-on Lab
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource Group | **RG-TAE-Networks** |
+    | Resource Group | **RG-IAE-Network** |
     | Name | **NSG-WEB** |
     | Region | the name of the Azure region where you deployed all other resources in this lab |
 
@@ -232,7 +235,7 @@ Hands-on Lab
     | Protocol | **TCP** |
     | Action | **Allow** |
     | Priority | **200** |
-    | Name | **Allow-Port_80-443** |
+    | Name | **Allow-HTTPs** |
 
 1. Go to the Azure portal to view your **Network security groups**. Search for and select Network security groups is created.
 
@@ -240,7 +243,7 @@ Hands-on Lab
 
 1. On the **NSG-WEB** network security group blade, in the **Settings** section, click **Network interfaces** and then click **+ Associate**.
 
-1. Associate in the **VMHUB01** network security group with the **Network interface**.
+1. Associate in the **VMWEB01** network security group with the **Network interface**.
 
     >**Note**: It may take up to 5 minutes for the rules from the newly created Network Security Group to be applied to the Network Interface Card.
 
@@ -253,7 +256,7 @@ Hands-on Lab
 1. In the Virtual Machine Connection window, start Windows PowerShell and, in the **Administrator: Windows PowerShell** window run the following to set connection test. 
 
    ```powershell
-   Test-NetConnection -ComputerName PUBLICIPADDRESS-VMHUB01 -Port 80 -InformationLevel 'Detailed'
+   Test-NetConnection -ComputerName PUBLICIPADDRESS-VMWEB01 -Port 80 -InformationLevel 'Detailed'
    ```
 1. Examine the output of the command and verify that the connection was successful.
 
@@ -270,8 +273,8 @@ Hands-on Lab
     | Setting | Value | 
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **RG-TAE-Storage** |
-    | Storage account name | any globally unique name between 3 and 24 in length consisting of letters and digits **sataeblob###** |
+    | Resource group | the name of a new resource group **RG-IAE-Storage** |
+    | Storage account name | any globally unique name between 3 and 24 in length consisting of letters and digits **saiaeblob###** |
     | Location | the name of an Azure region where you can create an Azure Storage account  |
     | Performance | **Standard** |
     | Account kind | **StorageV2 (general purpose v2)** |
@@ -326,7 +329,7 @@ Hands-on Lab
 
 1. In the Azure Storage Explorer window, in the **Connect to Azure Storage** window, select **Use a shared access signature (SAS) URI** and select **Next**.
 
-1. In the **Attach with SAS URI** window, in the **Display name** text box, type **sataeblob###**, in the **URI** text box, paste the value you copied into Clipboard, and select **Next**. 
+1. In the **Attach with SAS URI** window, in the **Display name** text box, type **saIAEblob###**, in the **URI** text box, paste the value you copied into Clipboard, and select **Next**. 
 
     >**Note**: This should automatically populate the value of **Blob endpoint** text box.
 
@@ -338,7 +341,7 @@ Hands-on Lab
 
 ## Lab #07 - Azure Files (15 minutes)
 
-1. In the Azure portal, search for and select **Storage accounts** and, on the **Storage accounts** blade and create a new Storage account **sataefiles**, in the **File service** section, click **File shares**.
+1. In the Azure portal, search for and select **Storage accounts** and, on the **Storage accounts** blade and create a new Storage account **saIAEfiles**, in the **File service** section, click **File shares**.
 
 1. Click **+ File share** and create a file share with the following settings:
 
@@ -369,8 +372,8 @@ Hands-on Lab
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you will be using in this lab |
-    | Resource Group | the name of a resource group **RG-TAE-Spoke1** |
-    | Name | **VNET-TAE-Spoke1** |
+    | Resource Group | the name of a resource group **RG-IAE-Spoke1** |
+    | Name | **VNET-IAE-Spoke1** |
     | Region | west us 2 |
     | IPv4 address space | **10.10.0.0/16** |
     | Subnet name | **Default** |
@@ -387,9 +390,9 @@ Hands-on Lab
 
 1. In the Azure portal, search for and select **Virtual networks**.
 
-1. In the list of virtual networks, click **VNET-TAE-Spoke1**.
+1. In the list of virtual networks, click **VNET-IAE-Spoke1**.
 
-1. On the **VNET-TAE-Spoke1** virtual network blade, in the **Settings** section, click **Peerings** and then click **+ Add**.
+1. On the **VNET-IAE-Spoke1** virtual network blade, in the **Settings** section, click **Peerings** and then click **+ Add**.
 
 1. Specify the following settings (leave others with their default values) and click **Add**:
 
@@ -403,29 +406,10 @@ Hands-on Lab
     | Virtual network deployment model | **Resource manager** |
     | I know my resource ID | unselected |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **VNET-TAE-Hub** |
+    | Virtual network | **VNET-IAE-Hub** |
     | Traffic to remote virtual network | **Allow (default)** |
     | Traffic forwarded from remote virtual network | **None** |
     | Virtual network gateway | **Use this virtual network's gateway** |
-
-1. On the **VNET-TAE-HUB** virtual network blade, in the **Settings** section, click **Peerings** and then click **+ Add**.
-
-1. Add a peering with the following settings (leave others with their default values):
-
-    | Setting | Value|
-    | --- | --- |
-    | This virtual network: Peering link name | **To-Spoke1** |
-    | This virtual network: Traffic to remote virtual network | **Allow (default)** |
-    | This virtual network: Traffic forwarded from remote virtual network | ****Allow (default)**** |
-    | Virtual network gateway | **None*** |
-    | Remote virtual network: Peering link name | **To-Hub** |    
-    | Virtual network deployment model | **Resource manager** |
-    | I know my resource ID | unselected |
-    | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **VNET-TAE-Spoke1** |
-    | Traffic to remote virtual network | **Allow (default)** |
-    | Traffic forwarded from remote virtual network | **Allow (default)** |
-    | Virtual network gateway | **None** |
 
 1. At the top of the Azure portal, enter the name of a **VMSPOKE1** that is in the running state, in the search box. When the name of the VM appears in the search results, select it.
 
@@ -442,13 +426,13 @@ Hands-on Lab
 1. In the Windows PowerShell console window, run the following to test connectivity to **VMSPOKE01**.
 
    ```pwsh
-   Test-NetConnection -ComputerName IPADDRESS-VMHUB01 -Port 3389 -InformationLevel 'Detailed'
+   Test-NetConnection -ComputerName IPADDRESS-VMWEB01 -Port 3389 -InformationLevel 'Detailed'
    ```
     >**Note**: The test uses TCP 3389 since this is this port is allowed by default by operating system firewall. 
 
 1. Examine the output of the command and verify that the connection was successful.
 
-1. In the Windows PowerShell console window, run the following to test connectivity to **VMHUB01** 
+1. In the Windows PowerShell console window, run the following to test connectivity to **VMWEB01** 
 
    ```pwsh
    Test-NetConnection -ComputerName IPADDRESS-VMSPOKE01 -Port 3389 -InformationLevel 'Detailed'
@@ -457,17 +441,17 @@ Hands-on Lab
 
 ## Project #01 - Hub-spoke Archicture (60 minutes)
 
-Implement a Hub-spoke topology
+Implement a Hub-spoke Network topology
 
    ![Screenshot of the Hub-spoke](/AllFiles/Images/Hub-Spoke.png)
 
 **Important Notes**
 - Three Virtual Networks;
 - Virtual machines on the Spoke2 network running Ubuntu server;
-- VNET Peering connection Hub to spoke and vice verse
-- VNET Peering connections to allow forwarded;
+- VNET Peering connection Hub to Spokes and vice verse;
+- OPTIONAL: Azure VPN Gateway on the Hub network;
 - Azure Firewall on the Hub network;
-- Azure Bastion on the Hub network;
+- OPTIONAL: Azure Bastion on the Hub network;
 - Custom Route tables to address prefix "Address space Spoke 1 and Spoke 2" and next hop type to virtual applicance **IP Azure Firewall**;
 - Network rule Azure Firewall all traffic.
 
@@ -487,8 +471,8 @@ References: [Hub-spoke network topology](https://docs.microsoft.com/en-us/azure/
     | Setting | Value | 
     | --- | --- |
     | Subscription | the name of the Azure subscription you will be using in this lab |
-    | Resource group | the name of a new resource group **RG-Network** |
-    | Virtual machine name | **VMTAEWEB01** and **VMTAEWEB02** |
+    | Resource group | the name of a new resource group **RG-IAE-Network** |
+    | Virtual machine name | **VMIAEWEB01** and **VMIAEWEB02** |
     | Region | select one of the regions that support availability zones and where you can provision Azure virtual machines | 
     | Availability options | **Availability zone** |
     | Availability zone | **1** and **2** |
@@ -511,9 +495,9 @@ References: [Hub-spoke network topology](https://docs.microsoft.com/en-us/azure/
 
     | Setting | Value | 
     | --- | --- |
-    | Virtual Network | the name of a virtual network **VNET-TAE-Hub** |
+    | Virtual Network | the name of a virtual network **VNET-IAE-Hub** |
     | Subnet | **Default** |
-    | Public IP | **VMTAEWEB01-PI** and **VMTAEWEB02-PI** |
+    | Public IP | **VMIAEWEB01-PI** and **VMIAEWEB02-PI** |
     | NIC network security group | **None** |
     | Accelerated networking | **Off** |
     | Place this virtual machine behind an existing load balancing solution? | **No** |
@@ -524,7 +508,7 @@ References: [Hub-spoke network topology](https://docs.microsoft.com/en-us/azure/
     | --- | --- |
     | Boot diagnostics | **Enable with custom storage account** |
     | Diagnostics storage account | create new |
-    | Properties storage account | Name: **sataediag####**, Account kind: StorageV2, Performance: Standard, Replication: Locally-redundant-storage (LRS) |
+    | Properties storage account | Name: **saIAEdiag####**, Account kind: StorageV2, Performance: Standard, Replication: Locally-redundant-storage (LRS) |
     | Enable auto-shutdown | off |   
 
 1. Click **Next: Advanced >**, on the **Advanced** tab of the **Custom data and cloud init** blade, add script for install NGINX Web Server.
@@ -535,7 +519,7 @@ References: [Hub-spoke network topology](https://docs.microsoft.com/en-us/azure/
 
 1. On the **Review + Create** blade, click **Create**.
 
-1. Repeat a new Virtual Machine **VMTAEWEB02**
+1. Repeat a new Virtual Machine **VMIAEWEB02**
 
 1. Check two Virtual machines create successful.
 
@@ -551,13 +535,13 @@ Test open Browser to IP Address the Virtual machines.
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **RG-TAE-Networks** |
-    | Name | **ALBTAEWEB** |
+    | Resource group | **RG-IAE-Network** |
+    | Name | **ALBIAEWEB** |
     | Region| name of the Azure region into which you deployed all other resources in this lab |
     | Type | **Public** |
     | SKU | **Standard** |
     | Public IP address | **Create new** |
-    | Public IP address name | **ALBTAEWEB-PI** |
+    | Public IP address name | **ALBIAEWEB-PI** |
     | Availability zone | **Zone-redundant** |
     | Add a public IPv6 address | **No** |
 
@@ -565,18 +549,18 @@ Test open Browser to IP Address the Virtual machines.
 
 1. On the deployment blade, click **Go to resource**.
 
-1. On the **ALBTAEWEB** load balancer blade, click **Backend pools** and click **+ Add**.
+1. On the **ALBIAEWEB** load balancer blade, click **Backend pools** and click **+ Add**.
 
 1. Add a backend pool with the following settings (leave others with their default values):
 
     | Setting | Value |
     | --- | --- |
     | Name | **BP-WEB** |
-    | Virtual network | **VNET-TAE-Hub** |
+    | Virtual network | **VNET-IAE-Hub** |
     | IP version | **IPv4** |
-    | Virtual machine | **VMTAEWEB01** | 
+    | Virtual machine | **VMIAEWEB01** | 
     | Virtual machine IP address | associate IP address |
-    | Virtual machine | **VMTAEWEB02** |
+    | Virtual machine | **VMIAEWEB02** |
     | Virtual machine IP address | associate IP address |
 
 1. Wait for the backend pool to be created, click **Health probes**, and then click **+ Add**.
@@ -619,13 +603,13 @@ Test open Browser to IP Address the Virtual machines.
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource Group | **RG-TAE-Networks** |
-    | Name | **NSG-TAE-ALB-WEB** |
+    | Resource Group | **RG-IAE-Network** |
+    | Name | **NSG-IAE-ALB-WEB** |
     | Region | the name of the Azure region where you deployed all other resources in this lab |
 
 1. On the deployment blade, click **Go to resource** to open the **NSG-ALB-WEB** network security group blade. 
 
-1. On the **NSG-TAE-ALB-WEB** network security group blade, in the **Settings** section, click **Inbound security rules**. 
+1. On the **NSG-IAE-ALB-WEB** network security group blade, in the **Settings** section, click **Inbound security rules**. 
 
 1. Add an inbound rule with the following settings (leave others with their default values):
 
@@ -642,7 +626,7 @@ Test open Browser to IP Address the Virtual machines.
 
 1. On the **NSG-ALB-WEB** network security group blade, in the **Settings** section, click **Network interfaces** and then click **+ Associate**.
 
-1. Associate the **NSG-TAE-ALB-WEB** network security group with the Network interfaces **VMTAEWEB01 and VMTAEWEB02**.
+1. Associate the **NSG-IAE-ALB-WEB** network security group with the Network interfaces **VMIAEWEB01 and VMIAEWEB02**.
 
     >**Note**: It may take up to 5 minutes for the rules from the newly created Network Security Group to be applied to the Network Interface Card.
 
@@ -654,7 +638,7 @@ Test open Browser to IP Address the Virtual machines.
 
 1. Verify that the browser window displays the message **Static page and servername**.
 
-1. In Virtual machines, select **VMTAEWEB01 or VMTAEWEB02** and click **Stop**. 
+1. In Virtual machines, select **VMIAEWEB01 or VMIAEWEB02** and click **Stop**. 
 
 1. Open another browser window but this time by using InPrivate mode and verify whether the target vm changes (as indicated by the message).
 
@@ -664,9 +648,9 @@ Test open Browser to IP Address the Virtual machines.
 
 1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. Select **Create** on the **Virtual machine scale sets** page, which will open the **Create a virtual machine scale set** page.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type **RG-TAE-VMSS** for the name and then select **OK**.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type **RG-IAE-VMSS** for the name and then select **OK**.
 
-1. Type **VMSSTAEWEB** as the name for your scale set.
+1. Type **VMSSIAEWEB** as the name for your scale set.
 
 1. In **Region**, select a region that is close to your area.
 
@@ -684,7 +668,7 @@ Test open Browser to IP Address the Virtual machines.
 
 1. In **Load balancing options**, select **Azure load balancer**.
 
-1. In **Select a load balancer**, create a new Azure Load Balancer **ALBTAEVMSSWEB**.
+1. In **Select a load balancer**, create a new Azure Load Balancer **ALBIAEVMSSWEB**.
 
 1. For **Select a backend pool**, select **Create new**, type **BP-VMSSWEB**, then select **Create**.
 
@@ -726,8 +710,8 @@ $customConfig = @{
 } 
 
     # Set VMSS variables
-$rgname = "rg-tae-vmss"
-$vmssname = "vmsstaeweb"
+$rgname = "rg-IAE-vmss"
+$vmssname = "vmssIAEweb"
  
     # Get VMSS object 
 $vmss = Get-AzVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
@@ -743,15 +727,15 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 1. Run the following command **./Add-CustomExtension-VMSS.ps1**.
 
-1. In **VMSSTAESWEB**, select **Extensions** and check a new extension.
+1. In **VMSSIAESWEB**, select **Extensions** and check a new extension.
 
-1. Select **Instances** in **VMSSTAEWEB**, click **Upgrade** for all instances.
+1. Select **Instances** in **VMSSIAEWEB**, click **Upgrade** for all instances.
 
     > **Note**: You might need to wait a few minutes.
 
 1. Test the Public IP address in Browser.
 
-    > **Note**: You will need to open port 80 (HTTP) internet access in Network Security Groups in Virtual Machine Scale Sets "VMSSTAEWEB"
+    > **Note**: You will need to open port 80 (HTTP) internet access in Network Security Groups in Virtual Machine Scale Sets "VMSSIAEWEB"
 
 1. In the Azure portal, navigate to the **Virtual Machine Scale Sets** entry, and on the **VMSSWEB** blade, select **Scaling**. 
 
@@ -826,7 +810,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
     | Setting | Value |
     | --- | ---|
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **RG-TAE-App** |
+    | Resource group | the name of a new resource group **RG-IAE-App** |
     | Web app name | any globally unique name |
     | Publish | **Code** |
     | Runtime stack | **PHP 7.3** |
@@ -948,8 +932,8 @@ In this task, you will swap the staging slot with the production slot
     | Setting | Value |
     | ---- | ---- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **RG-TAE-Container** |
-    | Container name | **acitaeweb** |
+    | Resource group | the name of a new resource group **RG-IAE-Container** |
+    | Container name | **aciIAEweb** |
     | Region | the name of a region where you can provision Azure container instances |
     | Image Source | **Quickstart images** |
     | Image | **microsoft/aci-helloworld (Linux)** |
@@ -1046,7 +1030,7 @@ In this task, you will swap the staging slot with the production slot
 
 1. From the **Add members** blade, search and select the **AzureExpert** appears in the list of user members.
 
-## Lab #06 - Azure RBAC (10 minutes)
+## Lab #06 - Azure RBAC (15 minutes)
 
 1. In the Azure portal, search for and select **Azure Active Directory**, on the Azure Active Directory blade, click **Users**, and then click **+ New user**.
 
@@ -1083,7 +1067,7 @@ In this task, you will swap the staging slot with the production slot
 
 1. Do not continue with creating the support request. Instead, sign out as the user from the Azure portal and close the InPrivate browser window.
 
-## Lab #07 - Azure Backup (15 minutes)
+## Lab #07 - Azure Backup (20 minutes)
 
 1. In the Azure portal, search for and select **Recovery Services vaults** and, on the **Recovery Services vaults** blade, click **+ Create**.
 
@@ -1092,8 +1076,8 @@ In this task, you will swap the staging slot with the production slot
     | Settings | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **RG-TAE-Backup** |
-    | Name | **RSV-TAE-Backup** |
+    | Resource group | the name of a new resource group **RG-IAE-Backup** |
+    | Name | **RSV-IAE-Backup** |
     | Region | the name of a region where you deployed the two virtual machines in the previous task |
 
     >**Note**: Make sure that you specify the same region into which you deployed virtual machines.
@@ -1104,21 +1088,21 @@ In this task, you will swap the staging slot with the production slot
 
 1. When the deployment is completed, click **Go to Resource**. 
 
-1. On the **RSV-TAE-Backup** Recovery Services vault blade, in the **Settings** section, click **Properties**.
+1. On the **RSV-IAE-Backup** Recovery Services vault blade, in the **Settings** section, click **Properties**.
 
-1. On the **RSV-TAE-Backup - Properties** blade, click the **Update** link under **Backup Configuration** label.
+1. On the **RSV-IAE-Backup - Properties** blade, click the **Update** link under **Backup Configuration** label.
 
 1. On the **Backup Configuration** blade, note that you can set the **Storage replication type** to either **Locally-redundant** or **Geo-redundant**. Leave the default setting of **Geo-redundant** in place and close the blade.
 
     >**Note**: This setting can be configured only if there are no existing backup items.
 
-1. Back on the **RSV-TAE-Backup - Properties** blade, click the **Update** link under **Security Settings** label. 
+1. Back on the **RSV-IAE-Backup - Properties** blade, click the **Update** link under **Security Settings** label. 
 
 1. On the **Security Settings** blade, note that **Soft Delete (For Azure Virtual Machines)** is **Enabled**.
 
-1. Close the **Security Settings** blade and, back on the **RSV-TAE-Backup** Recovery Services vault blade, click **Overview**.
+1. Close the **Security Settings** blade and, back on the **RSV-IAE-Backup** Recovery Services vault blade, click **Overview**.
 
-1. On the **RSV-TAE-Backup** Recovery Services vault blade, click **+ Backup**.
+1. On the **RSV-IAE-Backup** Recovery Services vault blade, click **+ Backup**.
 
 1. On the **Backup Goal** blade, specify the folowing settings:
 
@@ -1143,15 +1127,15 @@ In this task, you will swap the staging slot with the production slot
 
 1. Click **OK** to create the policy and then, in the **Virtual Machines** section, select **Add**.
 
-1. On the **Select virtual machines** blade, select **VMTAEHUB01**, click **OK**, and, back on the **Backup** blade, click **Enable backup**.
+1. On the **Select virtual machines** blade, select **VMIAEHUB01**, click **OK**, and, back on the **Backup** blade, click **Enable backup**.
 
     >**Note**: Wait for the backup to be enabled. This should take about 2 minutes. 
 
-1. Navigate back to the **RSV-TAE-Backup** Recovery Services vault blade, in the **Protected items** section, click **Backup items**, and then click the **Azure virtual machines** entry.
+1. Navigate back to the **RSV-IAE-Backup** Recovery Services vault blade, in the **Protected items** section, click **Backup items**, and then click the **Azure virtual machines** entry.
 
-1. On the **Backup Items (Azure Virtual Machine)** blade of **VMTAEHUB01**, review the values of the **Backup Pre-Check** and **Last Backup Status** entries, and click the **VMTAEHUB01** entry.
+1. On the **Backup Items (Azure Virtual Machine)** blade of **VMIAEHUB01**, review the values of the **Backup Pre-Check** and **Last Backup Status** entries, and click the **VMIAEHUB01** entry.
 
-1. On the **VMTAEHUB01** Backup Item blade, click **Backup now**, accept the default value in the **Retain Backup Till** drop-down list, and click **OK**.
+1. On the **VMIAEHUB01** Backup Item blade, click **Backup now**, accept the default value in the **Retain Backup Till** drop-down list, and click **OK**.
 
  >**Note**: Do not wait for the backup to complete but instead proceed.
 
@@ -1171,16 +1155,16 @@ In this task, you will swap the staging slot with the production slot
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
     | Resource group | the name of a new resource group **RG-TA-Monitor** |
-    | Log Analytics Workspace | any unique name **lawtaemon** |    
+    | Log Analytics Workspace | any unique name **lawIAEmon** |    
     | Region | the name of the Azure region into which you deployed the virtual machine in the previous task |
 
     >**Note**: Wait for the deployment to complete. The deployment should take about 1 minute.
 
-1. In the Azure portal, search for and select **Virtual machines**, and on the **Virtual machines** blade, click **VMTAEHUB01**.
+1. In the Azure portal, search for and select **Virtual machines**, and on the **Virtual machines** blade, click **VMIAEHUB01**.
 
-1. On the **VMTAEHUB01** blade, in the **Monitoring** section, click **Metrics**.
+1. On the **VMIAEHUB01** blade, in the **Monitoring** section, click **Metrics**.
 
-1. On the **VMTAEHUB01 | Metrics** blade, on the default chart, note that the only available **Metrics Namespace** is **Virtual Machine Host**.
+1. On the **VMIAEHUB01 | Metrics** blade, on the default chart, note that the only available **Metrics Namespace** is **Virtual Machine Host**.
 
     >**Note**: This is expected, since no guest-level diagnostic settings have been configured yet. You do have, however, the option of enabling guest memory metrics directly from the **Metrics Namespace** drop down-list. You will enable it later in this exercise.
 
@@ -1190,29 +1174,29 @@ In this task, you will swap the staging slot with the production slot
 
 1. In the **Metric** drop-down list, select **Percentage CPU**, in the **Aggregation** drop-down list, select **Avg**, and review the resulting chart. 
 
-1. On the **VMTAEHUB01** blade, in the **Monitoring** section, click **Diagnostic settings**.
+1. On the **VMIAEHUB01** blade, in the **Monitoring** section, click **Diagnostic settings**.
 
-1. On the **Overview** tab of the **VMTAEHUB01 | Diagnostic settings** blade, click **Enable guest-level monitoring**.
+1. On the **Overview** tab of the **VMIAEHUB01 | Diagnostic settings** blade, click **Enable guest-level monitoring**.
 
     >**Note**: Wait for the operation to take effect. This might take about 3 minutes.
 
-1. Switch to the **Performance counters** tab of the **VMTAEHUB01 | Diagnostic settings** blade and review the available counters.
+1. Switch to the **Performance counters** tab of the **VMIAEHUB01 | Diagnostic settings** blade and review the available counters.
 
     >**Note**: By default, CPU, memory, disk, and network counters are enabled. You can switch to the **Custom** view for more detailed listing.
 
-1. Switch to the **Logs** tab of the **VMTAEHUB01 | Diagnostic settings** blade and review the available event log collection options.
+1. Switch to the **Logs** tab of the **VMIAEHUB01 | Diagnostic settings** blade and review the available event log collection options.
 
     >**Note**: By default, log collection includes critical, error, and warning entries from the Application Log and System log, as well as Audit failure entries from the Security log. Here as well you can switch to the **Custom** view for more detailed configuration settings.
 
-1. On the **VMTAEHUB01** blade, in the **Monitoring** section, click **Logs** and then click **Enable**. 
+1. On the **VMIAEHUB01** blade, in the **Monitoring** section, click **Logs** and then click **Enable**. 
 
-1. On the **VMTAEHUB01 - Logs** blade, ensure that the Log Analytics workspace you created earlier in this lab is selected in the **Choose a Log Analytics Workspace** drop-down list and click **Enable**.
+1. On the **VMIAEHUB01 - Logs** blade, ensure that the Log Analytics workspace you created earlier in this lab is selected in the **Choose a Log Analytics Workspace** drop-down list and click **Enable**.
 
     >**Note**: Do not wait for the operation to complete but instead proceed to the next step. The operation might take about 5 minutes.
 
-1. On the **VMTAEHUB01 | Logs** blade, in the **Monitoring** section, click **Metrics**.
+1. On the **VMIAEHUB01 | Logs** blade, in the **Monitoring** section, click **Metrics**.
 
-1. On the **VMTAEHUB01 | Metrics** blade, on the default chart, note that at this point, the **Metrics Namespace** drop-down list, in addition to the **Virtual Machine Host** entry includes also the **Guest (classic)** entry.
+1. On the **VMIAEHUB01 | Metrics** blade, on the default chart, note that at this point, the **Metrics Namespace** drop-down list, in addition to the **Virtual Machine Host** entry includes also the **Guest (classic)** entry.
 
     >**Note**: This is expected, since you enabled guest-level diagnostic settings. You also have the option to **Enable new guest memory metrics**.
 
@@ -1254,7 +1238,7 @@ In the Azure portal, navigate back to the **Monitor** blade, click **Logs**.
 
     >**Note**: The names of several tables correspond to the solutions you installed earlier in this lab.
 
-1. Hover the mouse over the **VMTAEHUB01** entry and click the **Preview data** icon.  
+1. Hover the mouse over the **VMIAEHUB01** entry and click the **Preview data** icon.  
 
 1. If any data is available, in the **Update** pane, click **See in query editor**.
 
@@ -1295,8 +1279,8 @@ Kubernetes architecture.
     | Setting | Value |
     | ---- | ---- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **RG-TAE-AKS** |
-    | Kubernetes cluster name | **akstaecl** |
+    | Resource group | the name of a new resource group **RG-IAE-AKS** |
+    | Kubernetes cluster name | **aksIAEcl** |
     | Region | the name of a region where you can provision a Kubernetes cluster |
     | Kubernetes version | accept the default |
     | Node size | accept the default |
@@ -1333,9 +1317,9 @@ Kubernetes architecture.
 
 1. On the deployment blade, click the **Go to resource** link.
 
-1. On the **akstaecl** Kubernetes service blade, in the **Settings** section, click **Node pools**.
+1. On the **aksIAEcl** Kubernetes service blade, in the **Settings** section, click **Node pools**.
 
-1. On the **akstaecl - Node pools** blade, verify that the cluster consists of a single pool with one node.
+1. On the **aksIAEcl - Node pools** blade, verify that the cluster consists of a single pool with one node.
 
 1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
 
@@ -1344,9 +1328,9 @@ Kubernetes architecture.
 1. From the Cloud Shell pane, run the following to retrieve the credentials to access the AKS cluster:
 
     ```sh
-    RESOURCE_GROUP='rg-tae-aks'
+    RESOURCE_GROUP='rg-IAE-aks'
 
-    AKS_CLUSTER='akstaecl'
+    AKS_CLUSTER='aksIAEcl'
 
     az aks get-credentials --resource-group $rgname--name $aksclname
     ``` 
@@ -1456,7 +1440,7 @@ Kubernetes architecture.
     ```
 1. Close the **Cloud Shell** pane.
 
-1. End of day 2 and **Imersao Azure Azure Expert Online**.
+1. End of day 2 and **Imersao Azure Azure Expert**.
 
 1. Continue in the **Mentoria Arquiteto Cloud**.
 
