@@ -4,7 +4,7 @@ Este é o repositório que contém os materiais de apoio da Imersão
 
 Para realizar as atividades do Hands-on estamos utilizando o Portal do Azure no idioma Inglês a fim de manter o padrão e não haver erros, e se necessário você pode abrir o [Google Tradutor](https://translate.google.com.br/) e traduzir caso tenha alguma dificuldade no entendimento.
 
-## Hands-on Lab
+### Hands-on Lab
 ## Day 1
 ## Exercise #01 - Azure Calculator (15 minutes)
 
