@@ -335,7 +335,7 @@ Para realizar as atividades do Hands-on estamos utilizando o Portal do Azure no 
 
 1. In the **Connection Summary** window, select **Connect**. 
 
-1. Select **Storage account" and "Blob containers", Open and download uploaded files
+1. Select **Storage account** and "Blob containers", Open and download uploaded files
 
 1. Leave the Azure Storage Explorer window open.
 
