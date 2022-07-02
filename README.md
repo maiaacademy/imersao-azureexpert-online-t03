@@ -409,7 +409,7 @@ Para realizar as atividades do Hands-on estamos utilizando o Portal do Azure no 
     | Virtual network | **VNET-IAE-Hub** |
     | Traffic to remote virtual network | **Allow (default)** |
     | Traffic forwarded from remote virtual network | **None** |
-    | Virtual network gateway | **Use this virtual network's gateway** |
+    | Virtual network gateway | **None (default)** |
 
 1. At the top of the Azure portal, enter the name of a **VMSPOKE1** that is in the running state, in the search box. When the name of the VM appears in the search results, select it.
 
