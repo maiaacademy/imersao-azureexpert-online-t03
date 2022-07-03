@@ -1328,11 +1328,7 @@ Kubernetes architecture.
 1. From the Cloud Shell pane, run the following to retrieve the credentials to access the AKS cluster:
 
     ```sh
-    RESOURCE_GROUP='rg-iae-aks'
-
-    AKS_CLUSTER='aksiaecl'
-
-    az aks get-credentials --resource-group $rgname--name $aksclname
+    az aks get-credentials --resource-group rg-iae-aks --name aksiaecl
     ``` 
 
 1. From the **Cloud Shell** pane, run the following to verify connectivity to the AKS cluster:
