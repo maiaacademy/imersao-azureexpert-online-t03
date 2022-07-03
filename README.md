@@ -471,7 +471,7 @@ References: [Hub-spoke network topology](https://docs.microsoft.com/en-us/azure/
     | Setting | Value | 
     | --- | --- |
     | Subscription | the name of the Azure subscription you will be using in this lab |
-    | Resource group | the name of a new resource group **RG-IAE-Network** |
+    | Resource group | the name of a new resource group **RG-IAE-HA** |
     | Virtual machine name | **VMIAEWEB01** and **VMIAEWEB02** |
     | Region | select one of the regions that support availability zones and where you can provision Azure virtual machines | 
     | Availability options | **Availability zone** |
@@ -497,7 +497,7 @@ References: [Hub-spoke network topology](https://docs.microsoft.com/en-us/azure/
     | --- | --- |
     | Virtual Network | the name of a virtual network **VNET-IAE-Hub** |
     | Subnet | **Default** |
-    | Public IP | **VMIAEWEB01-PI** and **VMIAEWEB02-PI** |
+    | Public IP | **VMIAEWEB01-PI** and **VMIAEWEB02 (None)** |
     | NIC network security group | **None** |
     | Accelerated networking | **Off** |
     | Place this virtual machine behind an existing load balancing solution? | **No** |
@@ -508,7 +508,7 @@ References: [Hub-spoke network topology](https://docs.microsoft.com/en-us/azure/
     | --- | --- |
     | Boot diagnostics | **Enable with custom storage account** |
     | Diagnostics storage account | create new |
-    | Properties storage account | Name: **saIAEdiag####**, Account kind: StorageV2, Performance: Standard, Replication: Locally-redundant-storage (LRS) |
+    | Properties storage account | Name: **saiaediag####**, Account kind: StorageV2, Performance: Standard, Replication: Locally-redundant-storage (LRS) |
     | Enable auto-shutdown | off |   
 
 1. Click **Next: Advanced >**, on the **Advanced** tab of the **Custom data and cloud init** blade, add script for install NGINX Web Server.
@@ -535,7 +535,7 @@ Test open Browser to IP Address the Virtual machines.
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **RG-IAE-Network** |
+    | Resource group | **RG-IAE-HA** |
     | Name | **ALBIAEWEB** |
     | Region| name of the Azure region into which you deployed all other resources in this lab |
     | Type | **Public** |
@@ -618,11 +618,11 @@ Test open Browser to IP Address the Virtual machines.
     | Source | **Any** |
     | Source port ranges | * |
     | Destination | **Any** |
-    | Destination port ranges | **80** |
+    | Destination port ranges | **80,443** |
     | Protocol | **TCP** |
     | Action | **Allow** |
     | Priority | **100** |
-    | Name | **Allow-Port_80** |
+    | Name | **Allow-HTTP** |
 
 1. On the **NSG-ALB-WEB** network security group blade, in the **Settings** section, click **Network interfaces** and then click **+ Associate**.
 
