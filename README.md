@@ -479,7 +479,7 @@ References: [Hub-spoke network topology](https://docs.microsoft.com/en-us/azure/
     | Image | **Ubuntu Server 18.04 LTS - Gen1** |
     | Azure Spot instance | **No** |
     | Size | **Standard B1ms** |
-    | Username | **admaz** |
+    | Username | **azureuser** |
     | Password | **Azur3Exp3rt*** |
     | Public inbound ports | **SSH (22)** |
     | Would you like to use an existing Windows Server license? | **No** |
