@@ -1280,7 +1280,7 @@ Kubernetes architecture.
     | ---- | ---- |
     | Subscription | the name of the Azure subscription you are using in this lab |
     | Resource group | the name of a new resource group **RG-IAE-AKS** |
-    | Kubernetes cluster name | **aksIAEcl** |
+    | Kubernetes cluster name | **aksiaecl** |
     | Region | the name of a region where you can provision a Kubernetes cluster |
     | Kubernetes version | accept the default |
     | Node size | accept the default |
