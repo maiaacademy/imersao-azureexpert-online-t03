@@ -1394,7 +1394,7 @@ Kubernetes architecture.
 1. From the **Cloud Shell** pane, run the following to scale out the cluster by increasing the number of nodes to 2:
 
     ```sh
-    az aks scale --resource-group $rgname --name aksiaecl --node-count 2
+    az aks scale --resource-group rg-iae-aks --name aksiaecl --node-count 2
     ```
 
     > **Note**: Wait for the provisioning of the additional node to complete. This might take about 3 minutes. If it fails, rerun the `az aks scale` command.
