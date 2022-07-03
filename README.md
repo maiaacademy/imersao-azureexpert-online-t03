@@ -1317,7 +1317,7 @@ Kubernetes architecture.
 
 1. On the deployment blade, click the **Go to resource** link.
 
-1. On the **aksIAEcl** Kubernetes service blade, in the **Settings** section, click **Node pools**.
+1. On the **aksiaecl** Kubernetes service blade, in the **Settings** section, click **Node pools**.
 
 1. On the **aksIAEcl - Node pools** blade, verify that the cluster consists of a single pool with one node.
 
@@ -1328,9 +1328,9 @@ Kubernetes architecture.
 1. From the Cloud Shell pane, run the following to retrieve the credentials to access the AKS cluster:
 
     ```sh
-    RESOURCE_GROUP='rg-IAE-aks'
+    RESOURCE_GROUP='rg-iae-aks'
 
-    AKS_CLUSTER='aksIAEcl'
+    AKS_CLUSTER='aksiaecl'
 
     az aks get-credentials --resource-group $rgname--name $aksclname
     ``` 
