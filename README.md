@@ -788,7 +788,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 1. Back on the **Scaling** blade, select **Save**.
 
-1. In the Azure portal, start a new **Bash** session in the Cloud Shell pane. 
+1. In the Azure portal, start a new **Bash** session in the **Cloud Shell** pane. 
 
 1. From the Cloud Shell pane, run the following to trigger autoscaling of the Azure VM Scale Set instances in the backend pool of the Azure Application Gateway (replace the `<lb_IP_address>` placeholder with the IP address of the front end of the gateway you identified earlier):
 
@@ -799,7 +799,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
     > **Note**: You might need to wait a few minutes.
 
-## Lab #03 - Azure App Service (15 minutes)
+## Lab #03 - Azure App Service (30 minutes)
 
 1. Sign in to the [**Azure portal**](http://portal.azure.com).
 
@@ -813,7 +813,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
     | Resource group | the name of a new resource group **RG-IAE-App** |
     | Web app name | any globally unique name |
     | Publish | **Code** |
-    | Runtime stack | **PHP 7.3** |
+    | Runtime stack | **PHP 7.4** |
     | Operating system | **Windows** |
     | Region | the name of an Azure region where you can provision Azure web apps |
     | App service plan | accept the default configuration |
@@ -932,8 +932,8 @@ In this task, you will swap the staging slot with the production slot
     | Setting | Value |
     | ---- | ---- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **RG-IAE-Container** |
-    | Container name | **aciIAEweb** |
+    | Resource group | the name of a new resource group **RG-IAE-Containers** |
+    | Container name | **aciiaeweb** |
     | Region | the name of a region where you can provision Azure container instances |
     | Image Source | **Quickstart images** |
     | Image | **microsoft/aci-helloworld (Linux)** |
@@ -995,7 +995,7 @@ In this task, you will swap the staging slot with the production slot
     | Initial password | **Azur3Exp3rt*** |
     | Usage location | **United States** |
     | Job title | **Azure Expert** |
-    | Department | **IT** |
+    | Department | **Cloud** |
 
     >**Note**: **Copy to clipboard** the full **User Principal Name** (user name plus domain). You will need it later in this task.
 
@@ -1244,7 +1244,7 @@ In the Azure portal, navigate back to the **Monitor** blade, click **Logs**.
 
     >**Note**: You might need to wait a few minutes before the update data becomes available.
 
-## Project #02 - Azure Kubernetes Service (60 minutes)
+## Project #02 - Azure Kubernetes Service (45 minutes)
 
 Kubernetes architecture.
 
