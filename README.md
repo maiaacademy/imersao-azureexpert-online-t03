@@ -710,8 +710,8 @@ $customConfig = @{
 } 
 
     # Set VMSS variables
-$rgname = "rg-IAE-vmss"
-$vmssname = "vmssIAEweb"
+$rgname = "rg-iae-vmss"
+$vmssname = "vmssiaeweb"
  
     # Get VMSS object 
 $vmss = Get-AzVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
